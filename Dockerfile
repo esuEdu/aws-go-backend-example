@@ -11,7 +11,7 @@ RUN go mod download
 COPY . .
 
 # Build the Go application
-RUN go build -o go-backend ./cmd/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o go-backend ./cmd/main.go
 
 # Use a minimal base image for production
 FROM alpine:latest
