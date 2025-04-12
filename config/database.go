@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/esuEdu/aws-go-backend-example/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -27,7 +28,7 @@ func InitDB() *gorm.DB {
 		log.Fatal("Failed to connect to database", err)
 	}
 
-	db.AutoMigrate() // initial migration
+	db.AutoMigrate(&models.Doc{}) // initial migration
 
 	return db
 
