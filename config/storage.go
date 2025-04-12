@@ -5,7 +5,6 @@ import (
 	"log"
 
 	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
 
@@ -28,14 +27,10 @@ func LoadS3Config() S3Config {
 }
 
 func InitS3Client(cfg *S3Config) *s3.Client {
-	awsCfg, err := config.LoadDefaultConfig(context.TODO(),
-		config.WithRegion(cfg.Region),
-		config.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(
-			cfg.AccessKeyID, cfg.SecretAccessKey, "",
-		)),
-	)
+	// Automatically use the EC2 instance role for credentials
+	awsCfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion(cfg.Region))
 	if err != nil {
-		log.Fatalf("Failed to load AWS config: %v", err)
+		log.Fatalf("Unable to load SDK config, %v", err)
 	}
 	return s3.NewFromConfig(awsCfg)
 }
