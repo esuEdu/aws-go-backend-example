@@ -1,6 +1,6 @@
 # 🛠️ Go Backend with Gin & GORM
 
-This is a API built with [Gin](https://github.com/gin-gonic/gin), [GORM](https://gorm.io/), and PostgreSQL. The project is designed for scalable deployment using AWS services like EC2, VPC, and S3.
+This is a API built with [Gin](https://github.com/gin-gonic/gin), [GORM](https://gorm.io/), and PostgreSQL. The project is designed for deployment using AWS services like EC2, VPC, and S3.
 
 ![diagram](diagram.svg)
 
