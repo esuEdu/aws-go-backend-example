@@ -15,13 +15,11 @@ func main() {
 
 	// s3 Setup
 	cfg := config.LoadS3Config()
-	s3Client := config.InitS3Client(&cfg)
 
 	// postgre setup
-
 	db := config.InitDB()
 
-	uploader := storage.NewS3Uploader(s3Client, cfg.Bucket)
+	uploader := storage.NewS3Uploader(cfg.Bucket, cfg.Region)
 	docRepo := repo.NewDocRepo(db)
 	uploadHandler := handlers.NewUploadHandler(uploader, docRepo)
 

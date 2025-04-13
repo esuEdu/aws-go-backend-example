@@ -9,20 +9,16 @@ import (
 )
 
 type S3Config struct {
-	Region          string
-	Bucket          string
-	AccessKeyID     string
-	SecretAccessKey string
+	Region string
+	Bucket string
 }
 
 func LoadS3Config() S3Config {
 	env := LoadEnv()
 
 	return S3Config{
-		Region:          env.AWSRegion,
-		Bucket:          env.AWSBucket,
-		AccessKeyID:     env.AccessKey,
-		SecretAccessKey: env.SecretAccessKey,
+		Region: env.AWSRegion,
+		Bucket: env.AWSBucket,
 	}
 }
 

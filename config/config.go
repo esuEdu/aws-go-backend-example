@@ -7,16 +7,14 @@ import (
 )
 
 type Env struct {
-	AppEnv          string `mapstructure:"APP_ENV"`
-	DBHost          string `mapstructure:"DB_HOST"`
-	DBPort          string `mapstructure:"DB_PORT"`
-	DBUser          string `mapstructure:"DB_USER"`
-	DBPass          string `mapstructure:"DB_PASSWORD"`
-	DBName          string `mapstructure:"DB_NAME"`
-	AWSRegion       string `mapstructure:"AWS_REGION"`
-	AWSBucket       string `mapstructure:"AWS_BUCKET"`
-	AccessKey       string `mapstructure:"AWS_ACCESS_KEY_ID"`
-	SecretAccessKey string `mapstructure:"AWS_SECRET_ACCESS_KEY"`
+	AppEnv    string `mapstructure:"APP_ENV"`
+	DBHost    string `mapstructure:"DB_HOST"`
+	DBPort    string `mapstructure:"DB_PORT"`
+	DBUser    string `mapstructure:"DB_USER"`
+	DBPass    string `mapstructure:"DB_PASSWORD"`
+	DBName    string `mapstructure:"DB_NAME"`
+	AWSRegion string `mapstructure:"AWS_REGION"`
+	AWSBucket string `mapstructure:"AWS_BUCKET"`
 }
 
 func LoadEnv() *Env {
