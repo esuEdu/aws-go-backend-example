@@ -40,6 +40,7 @@ func (u *S3Uploader) UploadFile(file *multipart.FileHeader) (string, string, err
 	}
 
 	req.Header.Set("Content-Type", file.Header.Get("Content-Type"))
+	req.ContentLength = file.Size
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
